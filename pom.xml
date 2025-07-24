@@ -56,12 +56,17 @@
 	</dependencies>
 
 	<build>
-		<plugins>
-			<plugin>
-				<groupId>org.springframework.boot</groupId>
-				<artifactId>spring-boot-maven-plugin</artifactId>
-			</plugin>
-		</plugins>
-	</build>
+    <plugins>
+        <plugin>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-maven-plugin</artifactId>
+            <!-- ADD THIS CONFIGURATION BLOCK -->
+            <configuration>
+                <mainClass>com.example.smartquiz.SmartquizApplication</mainClass>
+            </configuration>
+            <!-- END OF BLOCK TO ADD -->
+        </plugin>
+    </plugins>
+</build>
 
 </project>

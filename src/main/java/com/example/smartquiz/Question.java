@@ -1,5 +1,6 @@
 package com.example.smartquiz;
 
+import jakarta.persistence.Column; // Make sure this import is added
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -7,21 +8,33 @@ import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 
 @Entity
-@Table(name = "questions") // Specifies the table name in the database
+@Table(name = "questions")
 public class Question {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    // This annotation forces the column name in the database
+    @Column(name = "text")
     private String text;
-    private String optionA;
-    private String optionB;
-    private String optionC;
-    private String correctAnswer; // Will be "A", "B", or "C"
-    private int difficulty; // 1 for Easy, 2 for Medium, 3 for Hard
 
-    // Getters and Setters
+    @Column(name = "option_a")
+    private String optionA;
+
+    @Column(name = "option_b")
+    private String optionB;
+
+    @Column(name = "option_c")
+    private String optionC;
+
+    @Column(name = "correct_answer")
+    private String correctAnswer;
+
+    @Column(name = "difficulty")
+    private int difficulty;
+
+    // Getters and Setters remain the same
     public Long getId() { return id; }
     public void setId(Long id) { this.id = id; }
     public String getText() { return text; }
